@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Formulario from './components/Formulario'
 import styled from '@emotion/styled'
 import ImagenCripto from './img/imagen-criptos.png'
@@ -42,6 +42,20 @@ const Heading = styled.h1`
 
 function App() {
 
+  const [monedas, setMonedas] = useState({})
+
+  useEffect(() => {
+    if (Object.keys(monedas).length > 0) {
+      const cotizarCripto = async () => {
+        const { moneda, criptomoneda } = monedas
+        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`
+
+        console.log(url)
+      }
+      cotizarCripto()
+    }
+  }, [monedas])
+
   return (
     <Contenedor>
       <Imagen
@@ -51,7 +65,9 @@ function App() {
 
       <div>
         <Heading>Cambiador  de criptomonedas al instante</Heading>
-        <Formulario />
+        <Formulario
+          setMonedas={setMonedas}
+        />
       </div>
     </Contenedor>
   )
