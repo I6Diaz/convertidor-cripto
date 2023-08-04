@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 const Label = styled.label`
     color: #FFF;
     display: block;
+    padding: 10px;
     font-family: 'Lato', sans-serif;
     font-size: 24px;
     font-weigth: 700;

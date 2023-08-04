@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styled from '@emotion/styled'
 
 const Texto = styled.div`
@@ -9,7 +8,7 @@ const Texto = styled.div`
     text-transform: uppercase;
     font-family : 'Lato', sans-serif;
     font-weigth: 700;
-    text-align: center;    
+    text-align: center;
 `
 
 const Error = ({ children }) => {
@@ -19,6 +18,5 @@ const Error = ({ children }) => {
         </Texto>
     )
 }
-
 
 export default Error

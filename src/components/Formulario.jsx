@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import Error from './Error'
 import useSelectMonedas from '../hooks/useSelectMonedas'
 import { monedas } from '../data/monedas'
+import Resultado from './Resultado'
 
 const InputSubmit = styled.input`
     background-color: #9497FF;
@@ -26,7 +27,7 @@ const InputSubmit = styled.input`
 const Formulario = ({ setMonedas }) => {
     const [criptos, setCriptos] = useState([])
     const [error, setError] = useState(false)
-
+    const [resultado, setResultado] = useState({})
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas)
     const [criptomoneda, Selectcriptomoneda] = useSelectMonedas('Elige tu criptomoneda', criptos)
 
@@ -75,6 +76,8 @@ const Formulario = ({ setMonedas }) => {
 
                 <SelectMonedas />
                 <Selectcriptomoneda />
+
+                {resultado.PRICE && <Resultado resultado={resultado} />}
 
                 <InputSubmit
                     type='submit'
